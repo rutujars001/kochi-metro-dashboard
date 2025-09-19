@@ -8,6 +8,7 @@ import ShowChartIcon from "@mui/icons-material/ShowChart";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import BoltIcon from "@mui/icons-material/Bolt";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import { useTheme } from "@mui/material/styles";
 
 const metricCards = [
   { label: "Active Models", value: 12, icon: <ScienceIcon color="primary" fontSize="large" /> },
@@ -62,27 +63,49 @@ const priorityColor = {
 };
 
 export default function MLAnalysis() {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
+
   return (
-    <Box sx={{ p: { xs: 2, md: 4 }, minHeight: "100vh", bgcolor: "background.default" }}>
-      <Typography variant="h4" fontWeight={700} mb={0.5}>
+    <Box sx={{
+      px: { xs: 2, md: 3 },
+      py: { xs: 2, md: 3 },
+      minHeight: "100vh",
+      background: isDark
+        ? `linear-gradient(180deg, #0b1416 0%, #0b1416 100%)`
+        : `linear-gradient(180deg, #30D5C811 0%, #ffffff 35%)`
+    }}>
+      <Typography variant="h4" fontWeight={800} mb={0.5}>
         ML Analysis Dashboard
       </Typography>
-      <Typography variant="body1" color="text.secondary" mb={3}>
+      <Typography variant="body1" color="text.secondary" mb={2}>
         Machine learning insights and predictive analytics
       </Typography>
+      <Box sx={{ height: 6, borderRadius: 2, background: 'linear-gradient(90deg, #30D5C8, #BCE34A)', mb: 3 }} />
 
       {/* Metric Cards */}
-      <Grid container spacing={2} mb={1}>
+      <Grid container spacing={3} mb={2}>
         {metricCards.map((card) => (
           <Grid item xs={12} sm={6} md={3} key={card.label}>
-            <Card elevation={1}>
+            <Card elevation={0} sx={{
+              border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+              boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
+              bgcolor: isDark ? '#0f1a1d' : '#ffffff',
+              borderRadius: 2,
+              transition: 'transform .15s ease, box-shadow .2s ease, border-color .2s ease',
+              '&:hover': {
+                transform: 'translateY(-3px)',
+                boxShadow: isDark ? '0 16px 32px rgba(0,0,0,0.65)' : '0 14px 28px rgba(48,213,200,0.33)',
+                borderColor: isDark ? '#30D5C844' : '#30D5C8'
+              }
+            }}>
               <CardContent sx={{ display: 'flex', alignItems: 'center', p: 2 }}>
                 {card.icon}
                 <Box ml={2}>
                   <Typography color="text.secondary" variant="subtitle2">
                     {card.label}
                   </Typography>
-                  <Typography fontWeight={700} variant="h5">
+                  <Typography fontWeight={800} variant="h5">
                     {card.value}
                   </Typography>
                 </Box>
@@ -93,9 +116,14 @@ export default function MLAnalysis() {
       </Grid>
 
       {/* Main Grid: Left = Failure Predictions, Right = Trend Analysis */}
-      <Grid container spacing={2} mb={2}>
+      <Grid container spacing={3} mb={2}>
         <Grid item xs={12} md={6}>
-          <Paper elevation={0} sx={{ p: 3, mb: 3, bgcolor: "background.paper" }}>
+          <Paper elevation={0} sx={{
+            p: 3, mb: 3,
+            border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+            boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2
+          }}>
             <Typography variant="h6" mb={2} display="flex" alignItems="center">
               <WarningAmberIcon sx={{ mr: 1 }} color="warning" /> Failure Predictions
             </Typography>
@@ -103,7 +131,12 @@ export default function MLAnalysis() {
               ML-driven predictions for potential equipment failures
             </Typography>
             {failurePredictions.map((p) => (
-              <Box key={p.title} mb={3} sx={{ background: "#fafbfc", borderRadius: 2, p: 2, boxShadow: "0 1px 3px #eee" }}>
+              <Box key={p.title} mb={3} sx={{
+                border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+                bgcolor: isDark ? '#0c181b' : '#FAFEFD',
+                borderRadius: 2, p: 2,
+                boxShadow: isDark ? '0 6px 16px rgba(0,0,0,0.45)' : '0 6px 16px rgba(48,213,200,0.12)'
+              }}>
                 <Box display="flex" alignItems="center" mb={0.3}>
                   <Typography variant="subtitle1" fontWeight={600}>
                     {p.title}
@@ -136,7 +169,12 @@ export default function MLAnalysis() {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <Paper elevation={0} sx={{ p: 3, mb: 3, bgcolor: "background.paper" }}>
+          <Paper elevation={0} sx={{
+            p: 3, mb: 3,
+            border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+            boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2
+          }}>
             <Typography variant="h6" mb={2} display="flex" alignItems="center">
               <ShowChartIcon sx={{ mr: 1 }} color="primary" /> Trend Analysis
             </Typography>
@@ -176,7 +214,12 @@ export default function MLAnalysis() {
       </Grid>
 
       {/* Preventive Maintenance Suggestions */}
-      <Paper elevation={0} sx={{ p: 3, bgcolor: "background.paper" }}>
+      <Paper elevation={0} sx={{
+        p: 3,
+        border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+        boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
+        bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2
+      }}>
         <Typography variant="h6" fontWeight={700} mb={1.3} display="flex" alignItems="center">
           <Chip
             size="small"
@@ -189,8 +232,13 @@ export default function MLAnalysis() {
         <Typography variant="body2" mb={2}>
           AI-recommended maintenance actions to prevent failures
         </Typography>
-        <Box sx={{ overflowX: "auto" }}>
-          <table style={{ width: "100%", borderCollapse: "collapse", background: "white" }}>
+        <Box sx={{
+          overflowX: 'auto',
+          border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+          borderRadius: 2,
+          backgroundColor: isDark ? '#0f1a1d' : '#ffffff'
+        }}>
+          <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: 0 }}>
             <thead>
               <tr>
                 <th align="left">Train</th>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   Box, Grid, Typography, Paper, Button, CircularProgress, TextField, Chip
 } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import SettingsIcon from "@mui/icons-material/Settings";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -85,6 +86,8 @@ export default function Simulation() {
   const [isRunning, setIsRunning] = useState(false);
   const [activeTemplate, setActiveTemplate] = useState(null);
   const [showResults, setShowResults] = useState(false);
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
 
   const handleRun = () => {
     setIsRunning(true);
@@ -108,17 +111,30 @@ export default function Simulation() {
   };
 
   return (
-    <Box sx={{ p: { xs: 2, md: 4 }, minHeight: "100vh", bgcolor: "background.default" }}>
-      <Typography variant="h4" fontWeight={700} mb={0.5}>
+    <Box sx={{
+      px: { xs: 2, md: 3 },
+      py: { xs: 2, md: 3 },
+      minHeight: "100vh",
+      background: isDark
+        ? `linear-gradient(180deg, #0b1416 0%, #0b1416 100%)`
+        : `linear-gradient(180deg, #30D5C811 0%, #ffffff 35%)`
+    }}>
+      <Typography variant="h4" fontWeight={800} mb={0.5}>
         What-If Simulation
       </Typography>
-      <Typography variant="body1" color="text.secondary" mb={3}>
+      <Typography variant="body1" color="text.secondary" mb={2}>
         Test scenarios and analyze operational impact
       </Typography>
+      <Box sx={{ height: 6, borderRadius: 2, background: 'linear-gradient(90deg, #30D5C8, #BCE34A)', mb: 3 }} />
       <Grid container spacing={3}>
         {/* Left: Scenario Input & Templates */}
         <Grid item xs={12} md={4}>
-          <Paper elevation={0} sx={{ p: 3, mb: 2 }}>
+          <Paper elevation={0} sx={{
+            p: 3, mb: 2,
+            border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+            boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2
+          }}>
             <Typography variant="h6" mb={1.2}>Scenario Input</Typography>
             <Typography variant="body2" color="text.secondary" mb={1}>
               Describe the situation you want to simulate
@@ -148,16 +164,29 @@ export default function Simulation() {
               <Button sx={{ ml: 1 }} color="inherit" onClick={() => { setDescription(""); setActiveTemplate(null); setShowResults(false); }}><AutorenewIcon /></Button>
             </Box>
           </Paper>
-          <Paper elevation={0} sx={{ p: 3 }}>
+          <Paper elevation={0} sx={{
+            p: 3,
+            border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+            boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2
+          }}>
             <Typography variant="h6" mb={1.2}>Quick Templates</Typography>
             <Typography variant="body2" color="text.secondary" mb={2}>Common scenarios to get started</Typography>
             {quickTemplates.map((tpl, idx) => (
               <Paper
                 key={tpl.title}
-                elevation={tpl.title === "Peak Hour Disruption" && activeTemplate === idx ? 3 : 0}
+                elevation={0}
                 sx={{
                   mb: 1.3, p: 2, cursor: "pointer",
-                  bgcolor: activeTemplate === idx ? "action.selected" : "background.paper"
+                  border: `1px solid ${activeTemplate === idx ? (isDark ? '#30D5C844' : '#30D5C8') : (isDark ? '#ffffff22' : '#607D8B33')}`,
+                  bgcolor: activeTemplate === idx ? (isDark ? '#0c181b' : '#FAFEFD') : (isDark ? '#0f1a1d' : '#ffffff'),
+                  borderRadius: 2,
+                  transition: 'transform .15s ease, box-shadow .2s ease, border-color .2s ease',
+                  '&:hover': {
+                    transform: 'translateY(-2px)',
+                    boxShadow: isDark ? '0 12px 24px rgba(0,0,0,0.6)' : '0 12px 24px rgba(48,213,200,0.2)',
+                    borderColor: isDark ? '#30D5C844' : '#30D5C8'
+                  }
                 }}
                 onClick={() => handleUseTemplate(idx)}
               >
@@ -169,7 +198,12 @@ export default function Simulation() {
         </Grid>
         {/* Right: Results */}
         <Grid item xs={12} md={8}>
-          <Paper elevation={0} sx={{ p: 4, minHeight: 320 }}>
+          <Paper elevation={0} sx={{
+            p: 4, minHeight: 320,
+            border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+            boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2
+          }}>
             {!description && (
               <Box textAlign="center" mt={4}>
                 <SettingsIcon color="disabled" sx={{ fontSize: 56 }} />
@@ -197,8 +231,13 @@ export default function Simulation() {
                   <WarningAmberIcon fontSize="inherit" sx={{ mr: 1 }} color="warning" /> Impact Analysis
                 </Typography>
                 <Typography variant="body2" mb={2}>Comparative analysis of operational metrics</Typography>
-                <Box sx={{ overflowX: "auto" }}>
-                  <table style={{ width: "100%", borderCollapse: "collapse", background: "white" }}>
+                <Box sx={{
+                  overflowX: 'auto',
+                  border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+                  borderRadius: 2,
+                  backgroundColor: isDark ? '#0f1a1d' : '#ffffff'
+                }}>
+                  <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: 0 }}>
                     <thead>
                       <tr>
                         <th align="left">Metric</th>
@@ -230,7 +269,13 @@ export default function Simulation() {
                 <Typography variant="body2" mb={2}>AI-generated mitigation strategies</Typography>
                 <Box sx={{ mb: 2 }}>
                   {solutionRows.map((row, idx) => (
-                    <Paper key={idx} sx={{ mb: 2, p: 2, bgcolor: "grey.50" }}>
+                    <Paper key={idx} sx={{
+                      mb: 2, p: 2,
+                      border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+                      bgcolor: isDark ? '#0c181b' : '#FAFEFD',
+                      borderRadius: 2,
+                      boxShadow: isDark ? '0 6px 16px rgba(0,0,0,0.45)' : '0 6px 16px rgba(48,213,200,0.12)'
+                    }}>
                       <Typography fontWeight={600}>{row.title}</Typography>
                       <Typography fontSize={14} color="text.secondary" mb={1}>Impact: {row.details}</Typography>
                       <Typography fontSize={14} color="text.secondary" mb={1}>Implementation: {row.implementation} &nbsp; &nbsp; Cost: {row.cost}</Typography>

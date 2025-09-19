@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   Box, Grid, Paper, Typography, Chip, TextField, InputAdornment, IconButton, Button
 } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import DirectionsRailwayIcon from "@mui/icons-material/DirectionsRailway";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -68,47 +69,57 @@ const statusColor = {
 export default function TrainAudit() {
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState(null);
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
 
   const filteredTrains = trains.filter(t =>
     (t.id + t.name).toLowerCase().includes(search.toLowerCase())
   );
 
   return (
-    <Box sx={{ p: { xs: 2, md: 4 }, minHeight: "100vh", bgcolor: "background.default" }}>
-      <Typography variant="h4" fontWeight={700} mb={1}>
+    <Box sx={{
+      px: { xs: 2, md: 3 },
+      py: { xs: 2, md: 3 },
+      minHeight: "100vh",
+      background: isDark
+        ? `linear-gradient(180deg, #0b1416 0%, #0b1416 100%)`
+        : `linear-gradient(180deg, #30D5C811 0%, #ffffff 35%)`
+    }}>
+      <Typography variant="h4" fontWeight={800} mb={1}>
         Train Audit
       </Typography>
-      <Typography variant="body1" color="text.secondary" mb={3}>
+      <Typography variant="body1" color="text.secondary" mb={2}>
         Comprehensive train profiles and operational status
       </Typography>
+      <Box sx={{ height: 6, borderRadius: 2, background: 'linear-gradient(90deg, #30D5C8, #BCE34A)', mb: 3 }} />
       {/* Overview stats */}
-      <Grid container spacing={2} mb={2}>
+      <Grid container spacing={3} mb={2}>
         <Grid item xs={6} sm={2.4}>
-          <Paper sx={{ p: 2, textAlign: "center" }}>
+          <Paper sx={{ p: 2, textAlign: "center", border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`, bgcolor: isDark ? '#0f1a1d' : '#ffffff', boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)', borderRadius: 2 }}>
             <Typography color="success.main" fontWeight={700} fontSize={28}>4</Typography>
             <Typography variant="caption">Active Trains</Typography>
           </Paper>
         </Grid>
         <Grid item xs={6} sm={2.4}>
-          <Paper sx={{ p: 2, textAlign: "center" }}>
+          <Paper sx={{ p: 2, textAlign: "center", border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`, bgcolor: isDark ? '#0f1a1d' : '#ffffff', boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)', borderRadius: 2 }}>
             <Typography color="warning.main" fontWeight={700} fontSize={28}>1</Typography>
             <Typography variant="caption">In Maintenance</Typography>
           </Paper>
         </Grid>
         <Grid item xs={6} sm={2.4}>
-          <Paper sx={{ p: 2, textAlign: "center" }}>
+          <Paper sx={{ p: 2, textAlign: "center", border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`, bgcolor: isDark ? '#0f1a1d' : '#ffffff', boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)', borderRadius: 2 }}>
             <Typography color="error.main" fontWeight={700} fontSize={28}>1</Typography>
             <Typography variant="caption">Fitness Expired</Typography>
           </Paper>
         </Grid>
         <Grid item xs={6} sm={2.4}>
-          <Paper sx={{ p: 2, textAlign: "center" }}>
+          <Paper sx={{ p: 2, textAlign: "center", border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`, bgcolor: isDark ? '#0f1a1d' : '#ffffff', boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)', borderRadius: 2 }}>
             <Typography color="secondary.main" fontWeight={700} fontSize={28}>11</Typography>
             <Typography variant="caption">Pending Jobs</Typography>
           </Paper>
         </Grid>
         <Grid item xs={6} sm={2.4}>
-          <Paper sx={{ p: 2, textAlign: "center" }}>
+          <Paper sx={{ p: 2, textAlign: "center", border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`, bgcolor: isDark ? '#0f1a1d' : '#ffffff', boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)', borderRadius: 2 }}>
             <Typography color="primary.main" fontWeight={700} fontSize={28}>$54.4K</Typography>
             <Typography variant="caption">Ad Revenue</Typography>
           </Paper>
@@ -117,7 +128,12 @@ export default function TrainAudit() {
       {/* Main audit area */}
       <Grid container spacing={3} mt={1}>
         <Grid item xs={12} md={6}>
-          <Paper sx={{ p: 3, minHeight: 400 }}>
+          <Paper sx={{
+            p: 3, minHeight: 400,
+            border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+            boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2
+          }}>
             <Typography variant="h6" fontWeight={600} mb={2}>Fleet Overview</Typography>
             <Typography variant="body2" color="text.secondary" mb={2}>
               Complete list of trains with key metrics
@@ -147,9 +163,20 @@ export default function TrainAudit() {
               {filteredTrains.map((train, idx) => (
                 <Paper
                   key={train.id}
-                  sx={{ mb: 2, p: 2, display: "flex", alignItems: "center", cursor: "pointer", bgcolor: selected === idx ? "action.selected" : "background.paper" }}
+                  sx={{
+                    mb: 2, p: 2, display: "flex", alignItems: "center", cursor: "pointer",
+                    border: `1px solid ${selected === idx ? (isDark ? '#30D5C844' : '#30D5C8') : (isDark ? '#ffffff22' : '#607D8B33')}`,
+                    bgcolor: selected === idx ? (isDark ? '#0c181b' : '#FAFEFD') : (isDark ? '#0f1a1d' : '#ffffff'),
+                    borderRadius: 2,
+                    transition: 'transform .15s ease, box-shadow .2s ease, border-color .2s ease',
+                    '&:hover': {
+                      transform: 'translateY(-2px)',
+                      boxShadow: isDark ? '0 12px 24px rgba(0,0,0,0.6)' : '0 12px 24px rgba(48,213,200,0.2)',
+                      borderColor: isDark ? '#30D5C844' : '#30D5C8'
+                    }
+                  }}
                   onClick={() => setSelected(idx)}
-                  elevation={selected === idx ? 4 : 1}
+                  elevation={0}
                 >
                   <DirectionsRailwayIcon sx={{ mr: 2, color: "primary.main" }} />
                   <Box flex={1}>
@@ -186,7 +213,12 @@ export default function TrainAudit() {
           </Paper>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Paper sx={{ p: 3, textAlign: "center", minHeight: 400 }}>
+          <Paper sx={{
+            p: 3, textAlign: "center", minHeight: 400,
+            border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+            boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2
+          }}>
             {selected === null ? (
               <>
                 <DirectionsRailwayIcon color="disabled" sx={{ fontSize: 48, mb: 1 }} />

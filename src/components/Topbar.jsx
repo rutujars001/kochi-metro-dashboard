@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { AppBar, Toolbar, Typography, IconButton, Button, Menu, MenuItem } from "@mui/material";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 import LanguageIcon from "@mui/icons-material/Language";
 import LogoutIcon from "@mui/icons-material/Logout";
 
@@ -41,8 +42,9 @@ export default function Topbar({ mode, setMode, lang, setLang, t, onLogout }) {
           component="div"
           fontWeight={600}
           color="text.primary"
-          sx={{ flexGrow: 1 }}
+          sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', gap: 1 }}
         >
+          <BoltOutlinedIcon color="primary" />
           Railway Operations Management
         </Typography>
         <Typography mr={2} color="text.secondary">
@@ -53,7 +55,11 @@ export default function Topbar({ mode, setMode, lang, setLang, t, onLogout }) {
           onClick={() => setMode(mode === "light" ? "dark" : "light")}
           color="inherit"
         >
-          {mode === "light" ? <Brightness4Icon /> : <Brightness7Icon />}
+          {mode === "light" ? (
+            <DarkModeOutlinedIcon sx={{ color: "#37474F" }} />
+          ) : (
+            <LightModeOutlinedIcon sx={{ color: "#FFEB3B" }} />
+          )}
         </IconButton>
         <Button
           color="inherit"

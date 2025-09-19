@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Box, Tabs, Tab, Typography, Grid, Paper, Chip } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import ShieldIcon from "@mui/icons-material/Shield";
@@ -49,12 +50,45 @@ const riskColor = {
 };
 
 function FitnessTable() {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
   return (
     <div>
       <Typography variant="h6" mb={1}>Fitness Certificates</Typography>
       <Typography variant="body2" mb={2}>Operational data and analytics for fitness certificates</Typography>
-      <Box sx={{ overflowX: "auto" }}>
-        <table style={{ width: "100%", borderCollapse: "collapse", background: "white" }}>
+      <Box sx={{
+        overflowX: 'auto',
+        overflowY: 'hidden',
+        border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+        borderRadius: 2,
+        boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
+        backgroundColor: isDark ? '#0f1a1d' : '#ffffff',
+        '& table': {
+          width: '100%',
+          borderCollapse: 'separate',
+          borderSpacing: 0,
+          tableLayout: 'fixed'
+        },
+        '& th, & td': {
+          padding: '12px 14px',
+          borderBottom: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+        },
+        '& thead th': {
+          position: 'sticky',
+          top: 0,
+          zIndex: 1,
+          backgroundColor: isDark ? '#0f1a1d' : '#E6FFFB',
+          color: theme.palette.text.primary,
+          fontWeight: 700
+        },
+        '& tbody tr:nth-of-type(odd)': {
+          backgroundColor: isDark ? '#0c181b' : '#FAFEFD'
+        },
+        '& tbody tr:hover': {
+          backgroundColor: isDark ? '#112126' : '#F3FFFE'
+        }
+      }}>
+        <table>
           <thead>
             <tr>
               <th align="left">Train ID</th>
@@ -100,12 +134,45 @@ const priorityColor = {
 };
 
 function JobCardsTable() {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
   return (
     <div>
       <Typography variant="h6" mb={1}>Job-Card Status</Typography>
       <Typography variant="body2" mb={2}>Operational data and analytics for job-card status</Typography>
-      <Box sx={{ overflowX: "auto" }}>
-        <table style={{ width: "100%", borderCollapse: "collapse", background: "white" }}>
+      <Box sx={{
+        overflowX: 'auto',
+        overflowY: 'hidden',
+        border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+        borderRadius: 2,
+        boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
+        backgroundColor: isDark ? '#0f1a1d' : '#ffffff',
+        '& table': {
+          width: '100%',
+          borderCollapse: 'separate',
+          borderSpacing: 0,
+          tableLayout: 'fixed'
+        },
+        '& th, & td': {
+          padding: '12px 14px',
+          borderBottom: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+        },
+        '& thead th': {
+          position: 'sticky',
+          top: 0,
+          zIndex: 1,
+          backgroundColor: isDark ? '#0f1a1d' : '#E6FFFB',
+          color: theme.palette.text.primary,
+          fontWeight: 700
+        },
+        '& tbody tr:nth-of-type(odd)': {
+          backgroundColor: isDark ? '#0c181b' : '#FAFEFD'
+        },
+        '& tbody tr:hover': {
+          backgroundColor: isDark ? '#112126' : '#F3FFFE'
+        }
+      }}>
+        <table>
           <thead>
             <tr>
               <th align="left">Job ID</th>
@@ -145,12 +212,45 @@ const brandingData = [
 ];
 
 function BrandingTable() {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
   return (
     <div>
       <Typography variant="h6" mb={1}>Branding Priorities</Typography>
       <Typography variant="body2" mb={2}>Operational data and analytics for branding priorities</Typography>
-      <Box sx={{ overflowX: "auto" }}>
-        <table style={{ width: "100%", borderCollapse: "collapse", background: "white" }}>
+      <Box sx={{
+        overflowX: 'auto',
+        overflowY: 'hidden',
+        border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+        borderRadius: 2,
+        boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
+        backgroundColor: isDark ? '#0f1a1d' : '#ffffff',
+        '& table': {
+          width: '100%',
+          borderCollapse: 'separate',
+          borderSpacing: 0,
+          tableLayout: 'fixed'
+        },
+        '& th, & td': {
+          padding: '12px 14px',
+          borderBottom: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+        },
+        '& thead th': {
+          position: 'sticky',
+          top: 0,
+          zIndex: 1,
+          backgroundColor: isDark ? '#0f1a1d' : '#E6FFFB',
+          color: theme.palette.text.primary,
+          fontWeight: 700
+        },
+        '& tbody tr:nth-of-type(odd)': {
+          backgroundColor: isDark ? '#0c181b' : '#FAFEFD'
+        },
+        '& tbody tr:hover': {
+          backgroundColor: isDark ? '#112126' : '#F3FFFE'
+        }
+      }}>
+        <table>
           <thead>
             <tr>
               <th align="left">Campaign</th>
@@ -186,12 +286,45 @@ const mileageData = [
 ];
 
 function MileageTable() {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
   return (
     <div>
       <Typography variant="h6" mb={1}>Mileage Balancing</Typography>
       <Typography variant="body2" mb={2}>Operational data and analytics for mileage balancing</Typography>
-      <Box sx={{ overflowX: "auto" }}>
-        <table style={{ width: "100%", borderCollapse: "collapse", background: "white" }}>
+      <Box sx={{
+        overflowX: 'auto',
+        overflowY: 'hidden',
+        border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+        borderRadius: 2,
+        boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
+        backgroundColor: isDark ? '#0f1a1d' : '#ffffff',
+        '& table': {
+          width: '100%',
+          borderCollapse: 'separate',
+          borderSpacing: 0,
+          tableLayout: 'fixed'
+        },
+        '& th, & td': {
+          padding: '12px 14px',
+          borderBottom: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+        },
+        '& thead th': {
+          position: 'sticky',
+          top: 0,
+          zIndex: 1,
+          backgroundColor: isDark ? '#0f1a1d' : '#E6FFFB',
+          color: theme.palette.text.primary,
+          fontWeight: 700
+        },
+        '& tbody tr:nth-of-type(odd)': {
+          backgroundColor: isDark ? '#0c181b' : '#FAFEFD'
+        },
+        '& tbody tr:hover': {
+          backgroundColor: isDark ? '#112126' : '#F3FFFE'
+        }
+      }}>
+        <table>
           <thead>
             <tr>
               <th align="left">Train ID</th>
@@ -225,12 +358,45 @@ const cleaningData = [
 ];
 
 function CleaningTable() {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
   return (
     <div>
       <Typography variant="h6" mb={1}>Cleaning & Detailing Slots</Typography>
       <Typography variant="body2" mb={2}>Operational data and analytics for cleaning & detailing slots</Typography>
-      <Box sx={{ overflowX: "auto" }}>
-        <table style={{ width: "100%", borderCollapse: "collapse", background: "white" }}>
+      <Box sx={{
+        overflowX: 'auto',
+        overflowY: 'hidden',
+        border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+        borderRadius: 2,
+        boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
+        backgroundColor: isDark ? '#0f1a1d' : '#ffffff',
+        '& table': {
+          width: '100%',
+          borderCollapse: 'separate',
+          borderSpacing: 0,
+          tableLayout: 'fixed'
+        },
+        '& th, & td': {
+          padding: '12px 14px',
+          borderBottom: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+        },
+        '& thead th': {
+          position: 'sticky',
+          top: 0,
+          zIndex: 1,
+          backgroundColor: isDark ? '#0f1a1d' : '#E6FFFB',
+          color: theme.palette.text.primary,
+          fontWeight: 700
+        },
+        '& tbody tr:nth-of-type(odd)': {
+          backgroundColor: isDark ? '#0c181b' : '#FAFEFD'
+        },
+        '& tbody tr:hover': {
+          backgroundColor: isDark ? '#112126' : '#F3FFFE'
+        }
+      }}>
+        <table>
           <thead>
             <tr>
               <th align="left">Train ID</th>
@@ -266,12 +432,34 @@ const stablingData = [
 ];
 
 function StablingTable() {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
   return (
     <div>
       <Typography variant="h6" mb={1}>Stabling Geometry</Typography>
       <Typography variant="body2" mb={2}>Operational data and analytics for stabling geometry</Typography>
-      <Box sx={{ overflowX: "auto" }}>
-        <table style={{ width: "100%", borderCollapse: "collapse", background: "white" }}>
+      <Box sx={{
+        overflowX: "auto",
+        '& table': {
+          width: '100%',
+          borderCollapse: 'separate',
+          borderSpacing: 0,
+          tableLayout: 'fixed'
+        },
+        '& th, & td': {
+          padding: '10px 12px',
+          borderBottom: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+        },
+        '& thead th': {
+          backgroundColor: isDark ? '#0f1a1d' : '#E6FFFB',
+          color: theme.palette.text.primary,
+          fontWeight: 700
+        },
+        '& tbody tr:hover': {
+          backgroundColor: isDark ? '#112126' : '#F3FFFE'
+        }
+      }}>
+        <table>
           <thead>
             <tr>
               <th align="left">Train ID</th>
@@ -305,23 +493,50 @@ function StablingTable() {
 // --- Main Data Prediction Page ---
 export default function DataPrediction() {
   const [tab, setTab] = useState(0);
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
 
   return (
-    <Box sx={{ p: { xs: 2, md: 4 }, bgcolor: "background.default", minHeight: "100vh" }}>
-      <Typography variant="h4" fontWeight={700} mb={0.5}>
+    <Box sx={{
+      px: { xs: 2, md: 3 },
+      py: { xs: 2, md: 3 },
+      minHeight: "100vh",
+      background: isDark
+        ? `linear-gradient(180deg, #0b1416 0%, #0b1416 100%)`
+        : `linear-gradient(180deg, #30D5C811 0%, #ffffff 35%)`
+    }}>
+      <Typography variant="h4" fontWeight={800} mb={0.5}>
         Data Prediction & Analytics
       </Typography>
-      <Typography variant="body1" mb={3} color="text.secondary">
+      <Typography variant="body1" mb={2} color="text.secondary">
         Operational data analysis and predictive insights
       </Typography>
-      <Grid container spacing={2} mb={2}>
+      <Box sx={{ height: 6, borderRadius: 2, background: 'linear-gradient(90deg, #30D5C8, #BCE34A)', mb: 3 }} />
+      <Grid container spacing={3} mb={3} alignItems="stretch">
         {stats.map((s) => (
-          <Grid item xs={12} sm={4} key={s.label}>
-            <Paper elevation={1} sx={{ p: 2, display: "flex", alignItems: "center", minHeight: 76 }}>
+          <Grid item xs={12} sm={6} md={3} key={s.label} sx={{ display: 'flex' }}>
+            <Paper sx={{
+              p: 2,
+              display: "flex",
+              alignItems: "center",
+              minHeight: 120,
+              height: '100%',
+              width: '100%',
+              border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+              bgcolor: isDark ? '#0f1a1d' : '#ffffff',
+              borderRadius: 2,
+              boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
+              transition: 'transform .15s ease, box-shadow .2s ease, border-color .2s ease',
+              '&:hover': {
+                transform: 'translateY(-3px)',
+                boxShadow: isDark ? '0 16px 32px rgba(0,0,0,0.65)' : '0 14px 28px rgba(48,213,200,0.33)',
+                borderColor: isDark ? '#30D5C844' : '#30D5C8'
+              }
+            }}>
               <Box sx={{ mr: 2 }}>{s.icon}</Box>
               <Box>
                 <Typography variant="subtitle2" color="text.secondary">{s.label}</Typography>
-                <Typography variant="h5" fontWeight={700}>{s.value}</Typography>
+                <Typography variant="h5" fontWeight={800}>{s.value}</Typography>
               </Box>
             </Paper>
           </Grid>
@@ -332,13 +547,51 @@ export default function DataPrediction() {
           <Tab key={mod.label} label={mod.label} />
         ))}
       </Tabs>
-      <Paper elevation={0} sx={{ p: 3, bgcolor: "background.paper" }}>
-        {tab === 0 && <FitnessTable />}
-        {tab === 1 && <JobCardsTable />}
-        {tab === 2 && <BrandingTable />}
-        {tab === 3 && <MileageTable />}
-        {tab === 4 && <CleaningTable />}
-        {tab === 5 && <StablingTable />}
+      <Paper sx={{
+        p: 3,
+        border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
+        bgcolor: isDark ? '#0f1a1d' : '#ffffff',
+        borderRadius: 2,
+        boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)'
+      }}>
+        <Grid container spacing={3}>
+          {tab === 0 && (
+            <Grid item xs={12}>
+              <Typography variant="subtitle1" fontWeight={700} sx={{ color: 'text.primary', mb: 1 }}>Fitness Certificates</Typography>
+              <FitnessTable />
+            </Grid>
+          )}
+          {tab === 1 && (
+            <Grid item xs={12}>
+              <Typography variant="subtitle1" fontWeight={700} sx={{ color: 'text.primary', mb: 1 }}>Job-Card Status</Typography>
+              <JobCardsTable />
+            </Grid>
+          )}
+          {tab === 2 && (
+            <Grid item xs={12}>
+              <Typography variant="subtitle1" fontWeight={700} sx={{ color: 'text.primary', mb: 1 }}>Branding Priorities</Typography>
+              <BrandingTable />
+            </Grid>
+          )}
+          {tab === 3 && (
+            <Grid item xs={12}>
+              <Typography variant="subtitle1" fontWeight={700} sx={{ color: 'text.primary', mb: 1 }}>Mileage Balancing</Typography>
+              <MileageTable />
+            </Grid>
+          )}
+          {tab === 4 && (
+            <Grid item xs={12}>
+              <Typography variant="subtitle1" fontWeight={700} sx={{ color: 'text.primary', mb: 1 }}>Cleaning & Detailing Slots</Typography>
+              <CleaningTable />
+            </Grid>
+          )}
+          {tab === 5 && (
+            <Grid item xs={12}>
+              <Typography variant="subtitle1" fontWeight={700} sx={{ color: 'text.primary', mb: 1 }}>Stabling Geometry</Typography>
+              <StablingTable />
+            </Grid>
+          )}
+        </Grid>
       </Paper>
     </Box>
   );

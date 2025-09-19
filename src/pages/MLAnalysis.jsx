@@ -92,6 +92,9 @@ export default function MLAnalysis() {
               boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
               bgcolor: isDark ? '#0f1a1d' : '#ffffff',
               borderRadius: 2,
+              minHeight: 160,
+              height: '100%',
+              width: '100%',
               transition: 'transform .15s ease, box-shadow .2s ease, border-color .2s ease',
               '&:hover': {
                 transform: 'translateY(-3px)',
@@ -99,7 +102,7 @@ export default function MLAnalysis() {
                 borderColor: isDark ? '#30D5C844' : '#30D5C8'
               }
             }}>
-              <CardContent sx={{ display: 'flex', alignItems: 'center', p: 2 }}>
+              <CardContent sx={{ display: 'flex', alignItems: 'center', p: 3, height: '100%' }}>
                 {card.icon}
                 <Box ml={2}>
                   <Typography color="text.secondary" variant="subtitle2">

@@ -130,10 +130,19 @@ export default function Simulation() {
         {/* Left: Scenario Input & Templates */}
         <Grid item xs={12} md={4}>
           <Paper elevation={0} sx={{
-            p: 3, mb: 2,
+            p: 3, mb: 3,
             border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
             boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
-            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2,
+            minHeight: 400,
+            height: '100%',
+            width: '100%',
+            transition: 'transform .15s ease, box-shadow .2s ease, border-color .2s ease',
+            '&:hover': {
+              transform: 'translateY(-3px)',
+              boxShadow: isDark ? '0 16px 32px rgba(0,0,0,0.65)' : '0 14px 28px rgba(48,213,200,0.33)',
+              borderColor: isDark ? '#30D5C844' : '#30D5C8'
+            }
           }}>
             <Typography variant="h6" mb={1.2}>Scenario Input</Typography>
             <Typography variant="body2" color="text.secondary" mb={1}>
@@ -168,7 +177,16 @@ export default function Simulation() {
             p: 3,
             border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
             boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
-            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2,
+            minHeight: 300,
+            height: '100%',
+            width: '100%',
+            transition: 'transform .15s ease, box-shadow .2s ease, border-color .2s ease',
+            '&:hover': {
+              transform: 'translateY(-3px)',
+              boxShadow: isDark ? '0 16px 32px rgba(0,0,0,0.65)' : '0 14px 28px rgba(48,213,200,0.33)',
+              borderColor: isDark ? '#30D5C844' : '#30D5C8'
+            }
           }}>
             <Typography variant="h6" mb={1.2}>Quick Templates</Typography>
             <Typography variant="body2" color="text.secondary" mb={2}>Common scenarios to get started</Typography>
@@ -199,10 +217,18 @@ export default function Simulation() {
         {/* Right: Results */}
         <Grid item xs={12} md={8}>
           <Paper elevation={0} sx={{
-            p: 4, minHeight: 320,
+            p: 3, minHeight: 500,
             border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
             boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
-            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2,
+            height: '100%',
+            width: '100%',
+            transition: 'transform .15s ease, box-shadow .2s ease, border-color .2s ease',
+            '&:hover': {
+              transform: 'translateY(-3px)',
+              boxShadow: isDark ? '0 16px 32px rgba(0,0,0,0.65)' : '0 14px 28px rgba(48,213,200,0.33)',
+              borderColor: isDark ? '#30D5C844' : '#30D5C8'
+            }
           }}>
             {!description && (
               <Box textAlign="center" mt={4}>

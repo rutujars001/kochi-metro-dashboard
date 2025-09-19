@@ -516,10 +516,10 @@ export default function DataPrediction() {
         {stats.map((s) => (
           <Grid item xs={12} sm={6} md={3} key={s.label} sx={{ display: 'flex' }}>
             <Paper sx={{
-              p: 2,
+              p: 3,
               display: "flex",
               alignItems: "center",
-              minHeight: 120,
+              minHeight: 160,
               height: '100%',
               width: '100%',
               border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,

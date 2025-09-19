@@ -95,31 +95,111 @@ export default function TrainAudit() {
       {/* Overview stats */}
       <Grid container spacing={3} mb={2}>
         <Grid item xs={6} sm={2.4}>
-          <Paper sx={{ p: 2, textAlign: "center", border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`, bgcolor: isDark ? '#0f1a1d' : '#ffffff', boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)', borderRadius: 2 }}>
+          <Paper sx={{ 
+            p: 3, 
+            textAlign: "center", 
+            border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`, 
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', 
+            boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)', 
+            borderRadius: 2,
+            minHeight: 160,
+            height: '100%',
+            width: '100%',
+            transition: 'transform .15s ease, box-shadow .2s ease, border-color .2s ease',
+            '&:hover': {
+              transform: 'translateY(-3px)',
+              boxShadow: isDark ? '0 16px 32px rgba(0,0,0,0.65)' : '0 14px 28px rgba(48,213,200,0.33)',
+              borderColor: isDark ? '#30D5C844' : '#30D5C8'
+            }
+          }}>
             <Typography color="success.main" fontWeight={700} fontSize={28}>4</Typography>
             <Typography variant="caption">Active Trains</Typography>
           </Paper>
         </Grid>
         <Grid item xs={6} sm={2.4}>
-          <Paper sx={{ p: 2, textAlign: "center", border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`, bgcolor: isDark ? '#0f1a1d' : '#ffffff', boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)', borderRadius: 2 }}>
+          <Paper sx={{ 
+            p: 3, 
+            textAlign: "center", 
+            border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`, 
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', 
+            boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)', 
+            borderRadius: 2,
+            minHeight: 160,
+            height: '100%',
+            width: '100%',
+            transition: 'transform .15s ease, box-shadow .2s ease, border-color .2s ease',
+            '&:hover': {
+              transform: 'translateY(-3px)',
+              boxShadow: isDark ? '0 16px 32px rgba(0,0,0,0.65)' : '0 14px 28px rgba(48,213,200,0.33)',
+              borderColor: isDark ? '#30D5C844' : '#30D5C8'
+            }
+          }}>
             <Typography color="warning.main" fontWeight={700} fontSize={28}>1</Typography>
             <Typography variant="caption">In Maintenance</Typography>
           </Paper>
         </Grid>
         <Grid item xs={6} sm={2.4}>
-          <Paper sx={{ p: 2, textAlign: "center", border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`, bgcolor: isDark ? '#0f1a1d' : '#ffffff', boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)', borderRadius: 2 }}>
+          <Paper sx={{ 
+            p: 3, 
+            textAlign: "center", 
+            border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`, 
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', 
+            boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)', 
+            borderRadius: 2,
+            minHeight: 160,
+            height: '100%',
+            width: '100%',
+            transition: 'transform .15s ease, box-shadow .2s ease, border-color .2s ease',
+            '&:hover': {
+              transform: 'translateY(-3px)',
+              boxShadow: isDark ? '0 16px 32px rgba(0,0,0,0.65)' : '0 14px 28px rgba(48,213,200,0.33)',
+              borderColor: isDark ? '#30D5C844' : '#30D5C8'
+            }
+          }}>
             <Typography color="error.main" fontWeight={700} fontSize={28}>1</Typography>
             <Typography variant="caption">Fitness Expired</Typography>
           </Paper>
         </Grid>
         <Grid item xs={6} sm={2.4}>
-          <Paper sx={{ p: 2, textAlign: "center", border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`, bgcolor: isDark ? '#0f1a1d' : '#ffffff', boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)', borderRadius: 2 }}>
+          <Paper sx={{ 
+            p: 3, 
+            textAlign: "center", 
+            border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`, 
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', 
+            boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)', 
+            borderRadius: 2,
+            minHeight: 160,
+            height: '100%',
+            width: '100%',
+            transition: 'transform .15s ease, box-shadow .2s ease, border-color .2s ease',
+            '&:hover': {
+              transform: 'translateY(-3px)',
+              boxShadow: isDark ? '0 16px 32px rgba(0,0,0,0.65)' : '0 14px 28px rgba(48,213,200,0.33)',
+              borderColor: isDark ? '#30D5C844' : '#30D5C8'
+            }
+          }}>
             <Typography color="secondary.main" fontWeight={700} fontSize={28}>11</Typography>
             <Typography variant="caption">Pending Jobs</Typography>
           </Paper>
         </Grid>
         <Grid item xs={6} sm={2.4}>
-          <Paper sx={{ p: 2, textAlign: "center", border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`, bgcolor: isDark ? '#0f1a1d' : '#ffffff', boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)', borderRadius: 2 }}>
+          <Paper sx={{ 
+            p: 3, 
+            textAlign: "center", 
+            border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`, 
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', 
+            boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)', 
+            borderRadius: 2,
+            minHeight: 160,
+            height: '100%',
+            width: '100%',
+            transition: 'transform .15s ease, box-shadow .2s ease, border-color .2s ease',
+            '&:hover': {
+              transform: 'translateY(-3px)',
+              boxShadow: isDark ? '0 16px 32px rgba(0,0,0,0.65)' : '0 14px 28px rgba(48,213,200,0.33)',
+              borderColor: isDark ? '#30D5C844' : '#30D5C8'
+            }
+          }}>
             <Typography color="primary.main" fontWeight={700} fontSize={28}>$54.4K</Typography>
             <Typography variant="caption">Ad Revenue</Typography>
           </Paper>
@@ -129,10 +209,18 @@ export default function TrainAudit() {
       <Grid container spacing={3} mt={1}>
         <Grid item xs={12} md={6}>
           <Paper sx={{
-            p: 3, minHeight: 400,
+            p: 3, minHeight: 500,
             border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
             boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
-            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2,
+            height: '100%',
+            width: '100%',
+            transition: 'transform .15s ease, box-shadow .2s ease, border-color .2s ease',
+            '&:hover': {
+              transform: 'translateY(-3px)',
+              boxShadow: isDark ? '0 16px 32px rgba(0,0,0,0.65)' : '0 14px 28px rgba(48,213,200,0.33)',
+              borderColor: isDark ? '#30D5C844' : '#30D5C8'
+            }
           }}>
             <Typography variant="h6" fontWeight={600} mb={2}>Fleet Overview</Typography>
             <Typography variant="body2" color="text.secondary" mb={2}>
@@ -214,10 +302,18 @@ export default function TrainAudit() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Paper sx={{
-            p: 3, textAlign: "center", minHeight: 400,
+            p: 3, textAlign: "center", minHeight: 500,
             border: `1px solid ${isDark ? '#ffffff22' : '#607D8B33'}`,
             boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
-            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2
+            bgcolor: isDark ? '#0f1a1d' : '#ffffff', borderRadius: 2,
+            height: '100%',
+            width: '100%',
+            transition: 'transform .15s ease, box-shadow .2s ease, border-color .2s ease',
+            '&:hover': {
+              transform: 'translateY(-3px)',
+              boxShadow: isDark ? '0 16px 32px rgba(0,0,0,0.65)' : '0 14px 28px rgba(48,213,200,0.33)',
+              borderColor: isDark ? '#30D5C844' : '#30D5C8'
+            }
           }}>
             {selected === null ? (
               <>

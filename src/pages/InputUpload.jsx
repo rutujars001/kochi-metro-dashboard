@@ -7,7 +7,6 @@ import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
 import ChatIcon from "@mui/icons-material/Chat";
 import TableChartIcon from "@mui/icons-material/TableChart";
 import OfflineBoltIcon from "@mui/icons-material/OfflineBolt";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const categories = [
   {
@@ -35,6 +34,7 @@ const categories = [
     accept: ""
   }
 ];
+
 
 export default function InputUpload() {
   const theme = useTheme();
@@ -78,17 +78,14 @@ export default function InputUpload() {
         ? `linear-gradient(180deg, #0b1416 0%, #0b1416 100%)`
         : `linear-gradient(180deg, #30D5C811 0%, #ffffff 35%)`
     }}>
-      {/* Back to Dashboard */}
-      <Box mb={2}>
-        <Button startIcon={<ArrowBackIcon />} href="/" sx={{ textTransform: 'none', fontWeight: 600 }}>
-          Back to Dashboard
-        </Button>
-      </Box>
       <Typography variant="h4" fontWeight={800} mb={1}>Input Upload</Typography>
       <Typography variant="body1" color="text.secondary" mb={2}>
         Upload and process operational data
       </Typography>
       <Box sx={{ height: 6, borderRadius: 2, background: 'linear-gradient(90deg, #30D5C8, #BCE34A)', mb: 3 }} />
+      
+      
+      {/* UPLOAD GRID */}
       <Grid container spacing={3}>
         {categories.map((cat, idx) => (
           <Grid item xs={12} md={6} key={cat.title}>
@@ -101,6 +98,9 @@ export default function InputUpload() {
               bgcolor: isDark ? '#0f1a1d' : '#ffffff',
               boxShadow: isDark ? '0 8px 20px rgba(0,0,0,0.5)' : '0 10px 24px rgba(48,213,200,0.14)',
               borderRadius: 2,
+              minHeight: 200,
+              height: '100%',
+              width: '100%',
               transition: 'transform .15s ease, box-shadow .2s ease, border-color .2s ease',
               '&:hover': {
                 transform: 'translateY(-3px)',

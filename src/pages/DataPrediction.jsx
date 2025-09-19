@@ -542,7 +542,15 @@ export default function DataPrediction() {
           </Grid>
         ))}
       </Grid>
-      <Tabs value={tab} onChange={(_, v) => setTab(v)} sx={{ mb: 3 }}>
+      <Tabs
+        value={tab}
+        onChange={(_, v) => setTab(v)}
+        textColor="primary"
+        indicatorColor="primary"
+        variant="scrollable"
+        scrollButtons="auto"
+        sx={{ mb: 3 }}
+      >
         {modules.map((mod) => (
           <Tab key={mod.label} label={mod.label} />
         ))}
@@ -557,37 +565,43 @@ export default function DataPrediction() {
         <Grid container spacing={3}>
           {tab === 0 && (
             <Grid item xs={12}>
-              <Typography variant="subtitle1" fontWeight={700} sx={{ color: 'text.primary', mb: 1 }}>Fitness Certificates</Typography>
+              <Typography variant="subtitle1" fontWeight={800} sx={{ color: 'text.primary', mb: 0.5 }}>Fitness Certificates</Typography>
+              <Box sx={{ height: 4, width: 140, borderRadius: 2, background: 'linear-gradient(90deg, #30D5C8, #BCE34A)', mb: 1.5 }} />
               <FitnessTable />
             </Grid>
           )}
           {tab === 1 && (
             <Grid item xs={12}>
-              <Typography variant="subtitle1" fontWeight={700} sx={{ color: 'text.primary', mb: 1 }}>Job-Card Status</Typography>
+              <Typography variant="subtitle1" fontWeight={800} sx={{ color: 'text.primary', mb: 0.5 }}>Job-Card Status</Typography>
+              <Box sx={{ height: 4, width: 140, borderRadius: 2, background: 'linear-gradient(90deg, #30D5C8, #BCE34A)', mb: 1.5 }} />
               <JobCardsTable />
             </Grid>
           )}
           {tab === 2 && (
             <Grid item xs={12}>
-              <Typography variant="subtitle1" fontWeight={700} sx={{ color: 'text.primary', mb: 1 }}>Branding Priorities</Typography>
+              <Typography variant="subtitle1" fontWeight={800} sx={{ color: 'text.primary', mb: 0.5 }}>Branding Priorities</Typography>
+              <Box sx={{ height: 4, width: 160, borderRadius: 2, background: 'linear-gradient(90deg, #30D5C8, #BCE34A)', mb: 1.5 }} />
               <BrandingTable />
             </Grid>
           )}
           {tab === 3 && (
             <Grid item xs={12}>
-              <Typography variant="subtitle1" fontWeight={700} sx={{ color: 'text.primary', mb: 1 }}>Mileage Balancing</Typography>
+              <Typography variant="subtitle1" fontWeight={800} sx={{ color: 'text.primary', mb: 0.5 }}>Mileage Balancing</Typography>
+              <Box sx={{ height: 4, width: 150, borderRadius: 2, background: 'linear-gradient(90deg, #30D5C8, #BCE34A)', mb: 1.5 }} />
               <MileageTable />
             </Grid>
           )}
           {tab === 4 && (
             <Grid item xs={12}>
-              <Typography variant="subtitle1" fontWeight={700} sx={{ color: 'text.primary', mb: 1 }}>Cleaning & Detailing Slots</Typography>
+              <Typography variant="subtitle1" fontWeight={800} sx={{ color: 'text.primary', mb: 0.5 }}>Cleaning & Detailing Slots</Typography>
+              <Box sx={{ height: 4, width: 210, borderRadius: 2, background: 'linear-gradient(90deg, #30D5C8, #BCE34A)', mb: 1.5 }} />
               <CleaningTable />
             </Grid>
           )}
           {tab === 5 && (
             <Grid item xs={12}>
-              <Typography variant="subtitle1" fontWeight={700} sx={{ color: 'text.primary', mb: 1 }}>Stabling Geometry</Typography>
+              <Typography variant="subtitle1" fontWeight={800} sx={{ color: 'text.primary', mb: 0.5 }}>Stabling Geometry</Typography>
+              <Box sx={{ height: 4, width: 160, borderRadius: 2, background: 'linear-gradient(90deg, #30D5C8, #BCE34A)', mb: 1.5 }} />
               <StablingTable />
             </Grid>
           )}

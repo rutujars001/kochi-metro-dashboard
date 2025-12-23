@@ -123,6 +123,7 @@ src/
   locales/             # Translation strings
   pages/               # Application pages
   components/          # Reusable UI components
+```
 
 ▶️ Getting Started
 Prerequisites

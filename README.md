@@ -1,415 +1,368 @@
-🚆 Metro Railway Operations Dashboard (Frontend)
-A modern React + Material UI dashboard for metro railway operations, designed as a Smart India Hackathon–style prototype.
-This repository currently contains only the frontend (no backend/API integration yet).
+# 🚆 Metro Railway Operations Dashboard (Frontend)
 
-📌 Project Overview
-Metro systems generate huge amounts of operational data: train fitness, maintenance jobs, branding campaigns, cleaning schedules, and stabling layouts. A lot of this still lives in spreadsheets, PDFs, WhatsApp chats, and manual logbooks.
+A modern **React + Material UI** dashboard for metro railway operations, designed as a **Smart India Hackathon–style prototype**.  
+This repository currently contains **only the frontend** (no backend/API integration yet).
 
-Metro Railway Operations Dashboard brings these streams into a single, operator-friendly web interface. The focus is on clear visualization, quick status checks, and modular pages for different operational functions.
+---
 
-Primary users:
+## 📌 Project Overview
 
-🧑‍✈️ Metro operations managers
+Metro systems generate large volumes of operational data: train fitness, maintenance jobs, branding campaigns, cleaning schedules, and stabling layouts. Much of this is scattered across **spreadsheets, PDFs, WhatsApp chats, and manual logbooks**.
 
-🛠️ Maintenance and engineering teams
+**Metro Railway Operations Dashboard** brings these streams into a single, operator-friendly web interface focused on:
 
-🧹 Cleaning and detailing teams
+- Clear visual status of trains and operations  
+- Quick decision support for managers  
+- Modular pages for different operational domains  
 
-📢 Branding / advertising coordinators
+**Primary users:**
 
-🎛️ Control room staff
+- 🧑‍✈️ Metro operations managers  
+- 🛠️ Maintenance and engineering teams  
+- 🧹 Cleaning and detailing staff  
+- 📢 Branding / advertising coordinators  
+- 🎛️ Control room staff  
 
-✨ Key Features (Frontend Prototype)
-1. 🔐 Authentication & Layout
-Login Screen
+---
 
-Simple username/password form using Material UI.
+## ✨ Key Features (Frontend Prototype)
 
-Demo-only login logic (no real authentication).
+### 1. 🔐 Authentication & Layout
 
-Global Layout
+**Login Screen**
 
-Topbar with:
+- Username/password form using Material UI components  
+- Demo-only login logic (no real authentication, local state only)
 
-🌗 Light/Dark theme toggle.
+**Global Layout**
 
-🌐 Language selector (e.g., English, Malayalam, Hindi, Tamil).
+- `Topbar`  
+  - 🌗 Light/Dark theme toggle  
+  - 🌐 Language selector (e.g., English, Malayalam, Hindi, Tamil)  
+  - 🚪 Logout button (logs out by toggling frontend `isLoggedIn` state)
 
-🚪 Logout button (toggles frontend login state).
+- `Sidebar`  
+  - Navigation links to **Dashboard**, **Input Upload**, **Train Audit**, and planned modules  
+  - Icon-based, persistent layout suited for control room usage  
 
-Sidebar navigation:
+---
 
-Links to Dashboard, Input Upload, Train Audit, and other planned modules.
+### 2. 📊 Dashboard
 
-Icon-based, persistent layout suitable for control room usage.
-
-2. 📊 Dashboard
 Central overview page with:
 
-Stat Cards
+**Stat Cards**
 
-✅ Trains ready for service.
+- ✅ Trains ready for service  
+- ⚠️ Active maintenance alerts  
+- 📅 Advertising deadlines  
+- 💹 System health / uptime  
 
-⚠️ Active maintenance alerts.
-
-📅 Advertising deadlines.
-
-💹 System health / uptime.
-
-Quick Action Cards
+**Quick Action Cards**
 
 Shortcuts to:
 
-📈 Data Prediction (placeholder)
+- 📈 Data Prediction (placeholder)  
+- 🧰 Maintenance Hub (concept)  
+- 🚉 Train Audit  
+- 🛏️ Stabling Status (concept)  
 
-🧰 Maintenance Hub (concept)
+**Context Panels**
 
-🚉 Train Audit
+- 📌 Today’s operational priorities  
+- 🛰️ High-level system status  
+- 👋 Login / welcome message  
 
-🛏️ Stabling Status (concept)
+---
 
-Context Panels
+### 3. 📥 Input Upload Page
 
-📌 Today’s operational priorities.
+Unified interface to simulate ingestion of multiple data sources.
 
-🛰️ High-level system status.
+**Supported Categories**
 
-👋 Login/welcome message area.
+- 📄 **Logbook** – PDF maintenance logs  
+- 💬 **WhatsApp Messages** – exported text chats  
+- 📑 **Spreadsheet Data** – CSV/Excel reports and schedules  
+- ⚡ **IoT Sensor Data** – structured telemetry
 
-The goal is a “one glance” network health view for managers.
+**UI Behaviour (Frontend Only)**
 
-3. 📥 Input Upload Page
-A unified interface for ingesting different types of operational data sources.
+- Each category card shows:
+  - Icon, title, concise description  
+  - “Choose File” button (with relevant `accept` filters when applicable)  
+  - Selected filename preview  
 
-Categories:
+- **“Send Input”** button:
+  - Simulates upload by adding selected files to an **Uploaded Files** list  
+  - Uses MUI **Snackbar** to show success or error messages  
 
-📄 Logbook
-For PDF maintenance logs.
+> 🔗 No files are actually sent to a server. This is a **UX prototype** ready to be connected to a backend.
 
-💬 WhatsApp Messages
-For exported text-based chats.
+---
 
-📑 Spreadsheet Data
-For CSV/Excel schedules and reports.
+### 4. 🚉 Train Audit Page
 
-⚡ IoT Sensor Data
-For structured telemetry and readings.
+Dedicated view for inspecting train-level operational data.
 
-Behaviors (Frontend-only):
+**Fleet Overview (Left Panel)**
 
-Each card includes:
+- Search bar to filter by train ID or name  
+- Train list with each row showing:
+  - 🆔 Train ID and name  
+  - 🧾 Fitness status (**Valid**, **Due Soon**, **Expired**) via color-coded Chips  
+  - 🧰 Pending jobs count  
+  - 📏 Mileage  
+  - 📍 Bay allocation  
+  - 🟢 Overall status (e.g., **Active**, **Maintenance**) via Chips  
+- Row hover and selected-row highlighting for better UX  
+- Visibility icon indicating detailed inspection
 
-Icon, title, short description.
+**Train Details (Right Panel)**
 
-“Choose File” button with per-type file acceptance.
+- Large icon and heading with selected train ID + name  
+- Summary: mileage, bay, fitness status, current status  
+- Chips for **Fitness** and **Status**  
+- Pending jobs count and key attributes  
+- Placeholder **“View Full Profile”** button for future deep dive
 
-Selected file name preview.
+---
 
-“Send Input” button:
+## 🧩 Planned / Designed Modules (Concept)
 
-Simulates upload by listing selected files in an Uploaded Files panel.
+These modules follow the same UI patterns but may be partially implemented or only planned in this repo.
 
-Uses a MUI Snackbar for success/error notifications.
+### 🛡️ Fitness Certificates
 
-❗ No actual network requests yet – this is a UI/UX prototype ready to be wired to APIs later.
+- Table columns:
+  - Train ID  
+  - Status (Valid / Expired / Due Soon – colored Chip)  
+  - Expiry Date  
+  - Certificate Type (Annual / Monthly / Quarterly)  
+  - Risk Level (Low / Medium / High – colored Chip)  
 
-4. 🚉 Train Audit Page
-A focused view for train-level operational audits.
+- Summary cards:
+  - Total Valid  
+  - Total Due Soon  
+  - Total Expired  
 
-Left: Fleet Overview
+---
 
-Searchable list of trains, each row showing:
+### 🧾 Job-Card Status
 
-🆔 Train ID and name.
+- Table columns:
+  - Job ID  
+  - Train  
+  - Work Type (Brake System, Engine Check, Cleaning, etc.)  
+  - Status (Open / Closed / In Progress – colored Chip)  
+  - Priority (High / Medium / Low – colored Chip)  
+  - Assigned Team  
 
-🧾 Fitness status (Valid, Due Soon, Expired) via color-coded MUI Chips.
+- Filters:
+  - By Status  
+  - By Priority  
+  - By Team  
 
-🧰 Pending maintenance jobs count.
+---
 
-📏 Mileage.
+### 📢 Branding Priorities
 
-📍 Bay allocation.
+- Campaign management table:
+  - Campaign Name  
+  - Train  
+  - Status (Active / Expired / Scheduled – Chip)  
+  - Expiry Date  
+  - Revenue generated  
 
-🟢 Overall status (Active / Maintenance) via colored chips.
+- Capabilities:
+  - Sort by expiry date  
+  - Filter by status  
 
-Row hover effect and selected-row highlighting.
+---
 
-Visibility icon to indicate more details.
+### 📉 Mileage Balancing
 
-Right: Train Detail Panel
+- Table columns:
+  - Train ID  
+  - Current Mileage  
+  - Target Mileage  
+  - Variance (e.g., `+3.5%`, `-2.1%`)  
+  - Efficiency (High / Normal / Low – Chip/label)  
 
-Displays details for the currently selected train:
+---
 
-Large train icon and title.
+### 🧼 Cleaning & Detailing
 
-Mileage and bay.
+- Table columns:
+  - Train ID  
+  - Bay (location)  
+  - Time (date/time slot)  
+  - Status (Completed / In Progress / Pending – Chip)  
+  - Cleaning Type (Deep Clean / Standard / Quick Turnaround)  
 
-Fitness and status chips.
+---
 
-Pending jobs and key metadata.
+### 🛏️ Stabling Geometry
 
-Placeholder “View Full Profile” button for deeper drill-down in future.
+- Table columns:
+  - Train ID  
+  - Bay (location)  
+  - Position (Platform Side / Maintenance / Storage)  
+  - Occupied Since  
+  - Departure Time  
+  - Status (Occupied / Available – Chip)  
 
-This page establishes a reusable pattern: table/grid on one side, detail/intelligence panel on the other.
+---
 
-🧩 Planned / Designed Modules (Concept Only)
-These modules are in the design scope and can be implemented as additional pages following the current UI patterns.
+## 🛠️ Tech Stack
 
-🛡️ Fitness Certificates
+**Frontend**
 
-Table columns:
+- ⚛️ React  
+- 🌐 React Router  
+- 🎨 Material UI (MUI):
+  - Layout: `Box`, `Grid`, `Paper`, `AppBar`, `Toolbar`  
+  - Inputs: `Button`, `Menu`, `Snackbar`, `TextField` (where used)  
+  - Display: `Typography`, `Chip`, `Card`  
+  - Icons: `@mui/icons-material`  
 
-Train ID
+**State Management**
 
-Certificate Status (Valid / Expired / Due Soon – colored chip)
+- React Hooks: `useState`, `useMemo`  
+- `isLoggedIn` for demo auth gating (no real tokens/sessions)
 
-Expiry Date
+**Theme & Language**
 
-Certificate Type (Annual / Monthly / Quarterly)
+- MUI `createTheme` for light/dark mode  
+- Simple `translations` map (in `locales`) for label localization
 
-Risk Level (Low / Medium / High – colored chip)
+**Backend**
 
-Summary cards: counts of valid, due soon, and expired certificates.
+- 🚫 Not implemented in this repo  
+- No real API, database, or auth backend yet  
 
-🧾 Job-Card Status
+---
 
-Table columns:
+## 📂 Project Structure (High Level)
 
-Job ID
-
-Train
-
-Work Type (Brake System, Engine Check, Cleaning, etc.)
-
-Status (Open / Closed / In Progress – colored chip)
-
-Priority (High / Medium / Low – colored chip)
-
-Assigned Team
-
-Filters by status, priority, and team.
-
-📢 Branding Priorities
-
-Campaign management table:
-
-Campaign Name
-
-Train
-
-Status (Active / Expired / Scheduled – colored chip)
-
-Expiry Date
-
-Revenue generated
-
-Sorting and filtering by status and expiry.
-
-📉 Mileage Balancing
-
-Table with:
-
-Train ID
-
-Current Mileage
-
-Target Mileage
-
-Variance (% positive/negative)
-
-Efficiency level (High / Normal / Low – label/chip)
-
-🧼 Cleaning & Detailing
-
-Schedule table:
-
-Train ID
-
-Bay (location)
-
-Date/time slot
-
-Status (Completed / In Progress / Pending – chip)
-
-Cleaning Type (Deep Clean / Standard / Quick Turnaround)
-
-🛏️ Stabling Geometry
-
-Yard/platform occupancy view:
-
-Train ID
-
-Bay (location)
-
-Position (Platform Side / Maintenance / Storage)
-
-Occupied Since
-
-Departure Time
-
-Status (Occupied / Available – chip)
-
-All modules follow common UI guidelines:
-
-MUI Paper/Card containers
-
-Clear headings and subheadings
-
-Color-coded Chips for state and priority
-
-Sticky table headers and row hover effects
-
-Optional summary analytics cards
-
-🛠️ Tech Stack
-Frontend
-
-⚛️ React
-
-🌐 React Router
-
-🎨 Material UI (MUI) for:
-
-Layout: Box, Grid, Paper, AppBar, Toolbar
-
-Inputs: TextField, Button, Menu, Snackbar
-
-Display: Typography, Chip, Card
-
-Icons: @mui/icons-material
-
-State Management
-
-React Hooks: useState, useMemo, etc.
-
-Local isLoggedIn state for demo authentication gating.
-
-Internationalization & Theme
-
-translations map for multi-language labels (stored in locales).
-
-MUI createTheme for light/dark mode toggle.
-
-Backend
-
-❌ Not implemented in this repository.
-
-No database, REST APIs, or real auth yet.
-
-📂 Project Structure (High Level)
-text
+```text
 src/
-  App.js                 # Main entry: routing, theme, login state
-  locales/
-    index.js             # Translation strings (t object)
-  pages/
-    Login.jsx            # Login screen
-    Dashboard.jsx        # Primary overview dashboard
-    InputUpload.jsx      # Multi-source upload UI
-    TrainAudit.jsx       # Train-level audit UI
-    DataPrediction.jsx   # Placeholder for analytics module
-    MLAnalysis.jsx       # Placeholder for ML module
-    Simulation.jsx       # Placeholder for simulation module
-  components/
-    Topbar.jsx           # Header with theme toggle, language, logout
-    Sidebar.jsx          # Navigation sidebar
-    StatCard.jsx         # Metric/stat cards
-    ActionCard.jsx       # Quick action cards
-🚀 Getting Started
-✅ Prerequisites
-Node.js (LTS recommended)
+App.js # Main entry: routing, theme, login logic
+locales/
+index.js # Translation strings and language map (t)
+pages/
+Login.jsx # Login screen
+Dashboard.jsx # Main overview dashboard
+InputUpload.jsx # Upload UI for multiple data types
+TrainAudit.jsx # Train audit/fleet overview page
+DataPrediction.jsx # Placeholder analytics page
+MLAnalysis.jsx # Placeholder ML page
+Simulation.jsx # Placeholder simulation page
+components/
+Topbar.jsx # Header with theme toggle, language select, logout
+Sidebar.jsx # Left navigation drawer
+StatCard.jsx # Stat/metric cards used on dashboard
+ActionCard.jsx # Quick action cards for navigation
+```
 
-npm or yarn
+---
 
-🔧 Installation & Run
-bash
-# Clone the repository
+## 🚀 Getting Started
+
+### ✅ Prerequisites
+
+- Node.js (LTS recommended)  
+- npm or yarn  
+
+### 🔧 Setup & Run
+
+## 1. Clone the repository
 git clone <your-repo-url>.git
 cd <your-repo-folder>
 
-# Install dependencies
+## 2. Install dependencies
 npm install
 
-# Start development server
+## 3. Start the development server
 npm start
 
-# Visit in browser
+## 4. Open in browser
 http://localhost:3000
-🔑 Demo Login
-(If using the sample logic from Login.jsx)
 
-Username: admin
 
-Password: railway123
+### 🔑 Demo Login
 
-This simply updates frontend state and is not secure or persistent.
+(If using the sample login in `Login.jsx`)
 
-⚠️ Current Limitations
-Frontend-only prototype
-No backend, database, or integration with real metro systems.
+- **Username:** `admin`  
+- **Password:** `railway123`  
 
-Static/demo data only
-Tables and stats are powered by hardcoded arrays.
+> This only updates frontend state and is **not secure or persistent**.
 
-No real authentication
-Login is simulated using useState.
+---
 
-No persistence
-Page refresh clears all “uploaded” data and selected items.
+## ⚠️ Current Limitations
 
-Perfect for UI/UX demos, academic work, and hackathon screening, but not production-ready yet.
+- **Frontend-only**: no backend, no DB, no live metro system connection  
+- **Static demo data**: tables and stats are powered by hardcoded arrays  
+- **No real auth**: login is simulated via `useState`  
+- **No persistence**: data resets on page refresh  
 
-🧭 Roadmap & Future Enhancements
-Potential improvements if extended beyond prototype:
+Ideal for:
 
-🔗 Backend Integration
+- 🎓 Academic projects  
+- 💡 Hackathon demos  
+- 🖥️ UI/UX showcases  
 
-Node.js/Express or Django REST.
+Not yet suitable for **production use**.
 
-PostgreSQL/MySQL for persistent storage.
+---
 
-🛡️ Real Authentication
+## 🧭 Roadmap & Future Enhancements
 
-JWT-based login.
+Potential next steps if you extend this project:
 
-Role-based access: admin, operations, maintenance, branding, cleaning.
+1. 🔗 **Backend Integration**
+   - Node.js/Express or Django REST API  
+   - PostgreSQL/MySQL for persistence  
 
-📡 Live Data Integration
+2. 🛡️ **Production-Grade Auth**
+   - JWT-based authentication  
+   - Role-based access control (admin, ops, maintenance, branding, cleaning)
 
-IoT feeds for stabling and sensor data.
+3. 📡 **Real Data Integration**
+   - IoT sensor streams for stabling and condition monitoring  
+   - Automated pipelines for PDFs, chats, and spreadsheets  
 
-Automated ingestion from logbook PDFs, WhatsApp exports, etc.
+4. 🤖 **Advanced Analytics**
+   - Predictive maintenance and downtime forecasting  
+   - Cleaning and stabling optimization based on usage patterns  
 
-🤖 Analytics & ML
+5. 📈 **Visualization & Mapping**
+   - Charts/graphs for KPIs and trends  
+   - Yard/stabling map views for spatial planning  
 
-Predictive maintenance models.
+---
 
-Data-driven cleaning and stabling recommendations.
+## 🤝 Contributing / Forking
 
-📈 Rich Visualizations
+This repo is primarily a **showcase / prototype**.
 
-Charts for mileage balance, downtime, and revenue trends.
+You can:
 
-Yard/stabling map visualizations.
+- 🍴 Fork it and integrate your preferred backend  
+- 🔁 Replace mocked data with real APIs  
+- 🧩 Add new modules or extend existing ones (filters, charts, reports)  
 
-🤝 Contributing / Forking
-This repo is primarily a showcase / hackathon-style prototype.
+If you harden it for production, remember to add:
 
-You’re welcome to:
+- Robust auth & authorization  
+- Proper error handling and logging  
+- Accessibility improvements and responsive design checks  
 
-🍴 Fork it and plug in your own backend.
+---
 
-🔁 Replace demo data with live APIs.
+## 📜 Disclaimer
 
-🧩 Add new modules or extend existing ones (filters, charts, admin tools, etc.).
-
-If you turn this into a production-grade system, make sure to:
-
-Harden auth and authorization.
-
-Add robust error handling and logging.
-
-Improve accessibility and cross-device responsiveness.
-
-📜 Disclaimer
-This project is a frontend prototype intended for demonstrations, academic projects, and hackathon screenings. It is not an official metro operator system and should not be used for real-world operational decisions without a proper backend, security hardening, and reliability guarantees.
+This project is a **frontend prototype** intended for **demonstrations, academic use, and hackathon screening**.  
+It is **not an official metro operator system** and must not be used for real-world operational decision-making without a proper backend, security audits, and reliability engineering.
